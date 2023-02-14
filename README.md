@@ -7,7 +7,8 @@ Each exercise emphasizes the fundamentals of object oriented programming in Java
 1. Fork and clone this repo.
 2. Type `cd javascript-foundations` to move into the root directory
 3. Run `npm install`
-4. Test that the unit tests are working by running the command `npm test mythical-creatures/test/unicorn-test.js` in your terminal
+4. Type `cd ${directory name}` to move into the root directory
+5. Test that the unit tests are working by running the command `npm test ${directory name}/test/${test file name}.js` in your terminal
 
 You should see something like:
 

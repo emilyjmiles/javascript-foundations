@@ -2,18 +2,18 @@ var Roadrace = require("../src/roadrace.js");
 var Runner = require("../src/runner.js");
 var assert = require('chai').assert;
 
-describe("Roadrace", function() {
+describe("Roadrace", function () {
 
-  it('should have an name and location', function() {
-    var race = new Roadrace({title: 'Rock N Roll Half Marathon', city: "Las Vegas"});
+  it('should have an name and location', function () {
+    var race = new Roadrace({ title: 'Rock N Roll Half Marathon', city: "Las Vegas" });
 
     assert.equal(race.name, 'Rock N Roll Half Marathon');
     assert.equal(race.location, "Las Vegas");
-  })
+  });
 
-  it('should be able to set the race distance in miles', function() {
-    var race1 = new Roadrace({title: 'Rock N Roll Half Marathon', city: "Las Vegas"});
-    var race2 = new Roadrace({title: 'City Park Marathon', city: "Denver"});
+  it('should be able to set the race distance in miles', function () {
+    var race1 = new Roadrace({ title: 'Rock N Roll Half Marathon', city: "Las Vegas" });
+    var race2 = new Roadrace({ title: 'City Park Marathon', city: "Denver" });
 
     var race1Distance = race1.setDistance(13.1);
     var race2Distance = race2.setDistance(26.2);
@@ -23,16 +23,16 @@ describe("Roadrace", function() {
 
     assert.equal(race2.distance, 26.2);
     assert.equal(race2Distance, `The City Park Marathon in Denver is a 26.2 mile race.`);
-  })
+  });
 
-  it('should start with no participants', function() {
-    var race = new Roadrace({title: 'Rock N Roll Half Marathon', city: "Las Vegas"});
+  it('should start with no participants', function () {
+    var race = new Roadrace({ title: 'Rock N Roll Half Marathon', city: "Las Vegas" });
 
     assert.deepEqual(race.participants, []);
-  })
+  });
 
-  it('should be able to register participants', function() {
-    var race = new Roadrace({title: 'Rock N Roll Half Marathon', city: "Las Vegas"});
+  it('should be able to register participants', function () {
+    var race = new Roadrace({ title: 'Rock N Roll Half Marathon', city: "Las Vegas" });
     var mike = new Runner('Mike', 36);
     var pam = new Runner('Pam', 33);
 
@@ -44,10 +44,10 @@ describe("Roadrace", function() {
     race.registerParticipants(pam);
     assert.equal(race.participants.length, 2);
     assert.equal(race.participants[1].name, 'Pam');
-  })
+  });
 
-  it('should add race to each participant\'s completed races when race is completed', function() {
-    var race = new Roadrace({title: 'Rock N Roll Half Marathon', city: "Las Vegas"});
+  it('should add race to each participant\'s completed races when race is completed', function () {
+    var race = new Roadrace({ title: 'Rock N Roll Half Marathon', city: "Las Vegas" });
     race.setDistance(13.1);
 
     var mike = new Runner('Mike', 36);
@@ -63,10 +63,10 @@ describe("Roadrace", function() {
     assert.equal(mike.completedRaces.includes('Rock N Roll Half Marathon'), true);
     assert.equal(pam.completedRaces.includes('Rock N Roll Half Marathon'), true);
     assert.equal(lazyHeather.completedRaces.includes('Rock N Roll Half Marathon'), false);
-  })
+  });
 
-  it('should update each participant\'s miles and fitness when race is completed', function() {
-    var race = new Roadrace({title: 'Rock N Roll Half Marathon', city: "Las Vegas"});
+  it('should update each participant\'s miles and fitness when race is completed', function () {
+    var race = new Roadrace({ title: 'Rock N Roll Half Marathon', city: "Las Vegas" });
     race.setDistance(13.1);
 
     var mike = new Runner('Mike', 36);
@@ -83,6 +83,6 @@ describe("Roadrace", function() {
     assert.equal(pam.milesRun, 13.1);
     assert.equal(lazyHeather.milesRun, 0);
     // challenge: Refactor to use a method in the Runner class
-        // instead of rewriting logic that already exists within the Runner class.
-  })
-})
+    // instead of rewriting logic that already exists within the Runner class.
+  });
+});

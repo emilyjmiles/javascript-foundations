@@ -1,8 +1,9 @@
 var assert = require('chai').assert;
 var GolfCourse = require('./golf-course.js');
-var Golfer = require('./golfer.js')
+var Golfer = require('./golfer.js');
 
 describe('Golf Course', function () {
+
   it('should have a name and difficulty', function () {
     var golfCourse = new GolfCourse('Overland GC', 'moderate');
     assert.equal(golfCourse.name, 'Overland GC');
@@ -61,12 +62,12 @@ describe('Golf Course', function () {
     var successfulCheckIn = golfCourse.checkInGroup(group1);
     assert.equal(golfCourse.openings, 1);
     assert.deepEqual(golfCourse.currentlyPlaying, ['Kevin', 'Ted', 'Pat']);
-    assert.equal(successfulCheckIn, 'You\'re checked in. Have fun!')
+    assert.equal(successfulCheckIn, 'You\'re checked in. Have fun!');
 
     var deniedCheckIn = golfCourse.checkInGroup(group2);
     assert.equal(golfCourse.openings, 1);
     assert.deepEqual(golfCourse.currentlyPlaying, ['Kevin', 'Ted', 'Pat']);
-    assert.equal(deniedCheckIn, 'Sorry, we are currently booked! Please come back later.')
+    assert.equal(deniedCheckIn, 'Sorry, we are currently booked! Please come back later.');
   });
 
 });
@@ -74,6 +75,7 @@ describe('Golf Course', function () {
 // GOLFER TESTS
 
 describe('Golfer', function () {
+
   it('should have a name and handicap', function () {
     var golfer = new Golfer({ name: 'Will', handicap: 21 });
     assert.equal(golfer.name, 'Will');
@@ -129,12 +131,12 @@ describe('Golfer', function () {
 
   it('should be able to marvel at the features of a golf course', function () {
     var golfer4 = new Golfer({ name: 'Khalid', handicap: 6 });
-    var golfCourse1 = new GolfCourse('Arrowhead', 'hard', 42, ['great views', 'wildlife'])
+    var golfCourse1 = new GolfCourse('Arrowhead', 'hard', 42, ['great views', 'wildlife']);
     var golfer5 = new Golfer({ name: 'Amy', handicap: 3 });
-    var golfCourse2 = new GolfCourse('Arrowhead', 'hard', 42, ['undulating greens', 'creative layout'])
+    var golfCourse2 = new GolfCourse('Arrowhead', 'hard', 42, ['undulating greens', 'creative layout']);
 
     assert.equal(golfer4.marvel(golfCourse1), 'I love the great views and wildlife on this course!');
-    assert.equal(golfer5.marvel(golfCourse2), 'I love the undulating greens and creative layout on this course!')
+    assert.equal(golfer5.marvel(golfCourse2), 'I love the undulating greens and creative layout on this course!');
   });
 
   it('should have their performance on a hole affect their frustration', function () {

@@ -1,12 +1,12 @@
+var assert = require('chai').assert;
 var Ingredient = require('../src/ingredient.js');
 var Recipe = require('../src/recipe.js');
 var Chef = require('../src/chef.js');
-var assert = require('chai').assert;
 
-describe('Chef', function() {
+describe('Chef', function () {
   var chefSarah, cookies, quesadillas, soup;
 
-  beforeEach(function() {
+  beforeEach(function () {
     // All of the code in this `beforeEach` is happening for every `it` block!
 
     // Ingredients:
@@ -24,29 +24,29 @@ describe('Chef', function() {
     var noodles = new Ingredient({ name: 'egg noodles', amount: 1 });
 
     // Recipes:
-    cookies = new Recipe({ name: 'chocolate chip cookies', ingredients: [chocolateChips, flour, sugar, bakingSoda]});
+    cookies = new Recipe({ name: 'chocolate chip cookies', ingredients: [chocolateChips, flour, sugar, bakingSoda] });
 
-    quesadillas = new Recipe({ name: 'quesadillas', ingredients: [cheese, tortillas]});
+    quesadillas = new Recipe({ name: 'quesadillas', ingredients: [cheese, tortillas] });
 
-    soup = new Recipe({ name: 'chicken noodle soup', ingredients: [chicken, carrots, celery, onion, broth, noodles]});
+    soup = new Recipe({ name: 'chicken noodle soup', ingredients: [chicken, carrots, celery, onion, broth, noodles] });
 
     // Chef:
     chefSarah = new Chef('Sarah', [cookies, quesadillas, soup]);
-  })
+  });
 
-  it.skip('should have a name and box of recipes', function() {
+  it('should have a name and box of recipes', function () {
     assert.equal(chefSarah.name, 'Sarah');
     assert.deepEqual(chefSarah.recipeBox, [cookies, quesadillas, soup]);
   });
 
-  it.skip('should be able to try and rate a recipe', function() {
+  it('should be able to try and rate a recipe', function () {
     chefSarah.tryRecipe('chicken noodle soup', 7);
 
     assert.equal(soup.attempted, true);
     assert.equal(soup.rating, 7);
   });
 
-  it.skip('should be able to add a recipe to their box', function() {
+  it('should be able to add a recipe to their box', function () {
     var strawberries = new Ingredient({ name: 'strawberries', amount: 6 });
     var bananas = new Ingredient({ name: 'bananas', amount: 1 });
     var milk = new Ingredient({ name: 'almond milk', amount: 0.5 });
@@ -59,7 +59,7 @@ describe('Chef', function() {
     assert.instanceOf(chefSarah.recipeBox[3], Recipe);
   });
 
-  it.skip('should be able to make changes to a recipe', function() {
+  it('should be able to make changes to a recipe', function () {
     chefSarah.changeRecipe('quesadillas', 'pepper jack cheese', 10);
 
     assert.equal(chefSarah.recipeBox[1].ingredients[0].amount, 10);

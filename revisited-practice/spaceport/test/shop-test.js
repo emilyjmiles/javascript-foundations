@@ -4,8 +4,9 @@ var Part = require('../src/part');
 var Being = require('../src/being');
 var Ship = require('../src/ship');
 
-describe('Shop', function() {
-  it.skip('should have a name', function() {
+describe('Shop', function () {
+
+  it('should have a name', function () {
     var shop1 = new Shop({ name: 'EZ-way' });
     var shop2 = new Shop({ name: 'Conogo' });
 
@@ -13,22 +14,22 @@ describe('Shop', function() {
     assert.equal(shop2.name, 'Conogo');
   });
 
-  it.skip('should have no inventory by default', function() {
+  it('should have no inventory by default', function () {
     var newShop = new Shop({ name: 'Conogo' });
 
     assert.deepEqual(newShop.inventory, {});
   });
 
-  it.skip('should be able to add a piece of inventory', function() {
+  it('should be able to add a piece of inventory', function () {
     var computer = new Part({ name: 'comp', type: 'computer', value: 200 });
-    var newShop = new Shop( {name: 'Conogo' });
+    var newShop = new Shop({ name: 'Conogo' });
 
     newShop.addInventory(computer);
 
     assert.include(Object.values(newShop.inventory), computer);
   });
 
-  it.skip('should be able to add another piece of inventory', function() {
+  it('should be able to add another piece of inventory', function () {
     var hyperdrive = new Part({ name: 'Z1', type: 'hyperdrive', value: 200 });
     var newShop = new Shop({ name: 'Conogo' });
 
@@ -37,7 +38,7 @@ describe('Shop', function() {
     assert.include(Object.values(newShop.inventory), hyperdrive);
   });
 
-  it.skip('can add multiple pieces of inventory', function() {
+  it('can add multiple pieces of inventory', function () {
     var computer = new Part({ name: 'comp', type: 'computer', value: 200 });
     var hyperdrive = new Part({ name: 'hyperdrive', type: 'hyperdrive', value: 200 });
     var newShop = new Shop({ name: 'Conogo' });
@@ -51,7 +52,7 @@ describe('Shop', function() {
     assert.include(Object.values(newShop.inventory), hyperdrive);
   });
 
-  it.skip('should only be able to add parts and food to the inventory', function() {
+  it('should only be able to add parts and food to the inventory', function () {
     var thing = { name: 'something', type: 'anything' };
     var otherThing = { name: 'else', quantity: 100 };
     var newShop = new Shop({ name: 'Conogo' });
@@ -62,7 +63,7 @@ describe('Shop', function() {
     assert.deepEqual(newShop.inventory, {});
   });
 
-  it.skip('cannot outfit a ship without a captain', function() {
+  it('cannot outfit a ship without a captain', function () {
     var fighter = new Ship(
       {
         name: 'Atlantis',
@@ -77,10 +78,10 @@ describe('Shop', function() {
     newShop.addInventory(shell);
     var result = newShop.outfitShip(fighter, 'shell');
 
-    assert.equal(result, `cannot outfit a ship without a captain`);
+    assert.equal(result, `Cannot outfit a ship without a captain`);
   });
 
-  it.skip('should not be able to outfit a ship if the captain is broke', function() {
+  it('should not be able to outfit a ship if the captain is broke', function () {
     var captain = new Being('Will', 'human');
 
     var fighter = new Ship(
@@ -91,17 +92,17 @@ describe('Shop', function() {
         maxCrew: 2,
         odometer: 3340,
       }
-    )
+    );
     var shell = new Part({ name: 'S-1', type: 'shell', value: 200 });
     var newShop = new Shop({ name: 'Conogo' });
 
     newShop.addInventory(shell);
     var result = newShop.outfitShip(fighter, 'shell');
 
-    assert.equal(result, "you require 200 more credits to make this purchase");
+    assert.equal(result, "You require 200 more credits to make this purchase");
   });
 
-  it.skip('should be able outfit a ship, and charge the captain', function() {
+  it('should be able outfit a ship, and charge the captain', function () {
     var captain = new Being('Will', 'human');
     captain.credits = 1000;
 
@@ -125,4 +126,4 @@ describe('Shop', function() {
     assert.isUndefined(newShop.inventory.shell);
     assert.equal(result, `shell added to ship`);
   });
-})
+});

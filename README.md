@@ -46,11 +46,13 @@ You can find the original [Turing School of Software and Design](https://turing.
 
 2. Clone down your forked copy
 
-3. CD into the repo directory
+3. CD into the repo directory:
 
    `cd javascript-foundations`
 
 4. Run `npm install` to install testing dependencies
+
+5. Follow your forked repo's `README.md` for instructions on how to proceed with testing 
 
 ## This Specific Repo
 

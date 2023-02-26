@@ -60,7 +60,7 @@ You can find this repo [here](https://github.com/emilyjmiles/jsFun) and follow t
 
 1. Clone down this repo using:
 
-   `git@github.com:emilyjmiles/jsFun.git`
+   `git@github.com:emilyjmiles/javascript-foundations.git`
    
 2. CD into the repo directory you wish to view (original or revisted):
 
